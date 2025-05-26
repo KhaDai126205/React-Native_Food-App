@@ -16,9 +16,7 @@ export default function HomeScreen() {
   return (
     <View style={styles.container}>
       <HomeHeader />
-      <ScrollView
-        stickyHeaderIndices={[0]}
-        showsVerticalScrollIndicator={false}>
+      <ScrollView stickyHeaderIndices={[0]} showsVerticalScrollIndicator={true}>
         <View>
           {/* Delivery vs Pick Up */}
           <View style={styles.switchContainer}>
@@ -62,33 +60,52 @@ export default function HomeScreen() {
 
         <View>
           {/* Address */}
-          <View
-            style={{
-              flexDirection: 'row',
-              backgroundColor: colors.grey5,
-              borderRadius: 15,
-              paddingVertical: 3,
-            }}>
-            <View>
-              <View style={styles.addressContainer}>
+          <View style={styles.filterView}>
+            <View
+              style={{
+                flexDirection: 'row',
+                backgroundColor: colors.grey5,
+                alignItems: 'center',
+                borderRadius: 15,
+                paddingVertical: 3,
+              }}>
+              <View style={{flexDirection: 'row', alignItems: 'center'}}>
                 <Icon
                   type="material-community"
-                  name="map-marker" // ✅ đúng icon
+                  name="map-marker"
                   color={colors.grey1}
                   size={26}
                 />
                 <Text style={styles.addressText}>14 Trinh Van Bo</Text>
               </View>
 
-              <View style={styles.addressContainer}>
+              <View
+                style={{
+                  flexDirection: 'row',
+                  alignItems: 'center',
+                  paddingLeft: 10,
+                }}>
                 <Icon
                   type="material-community"
-                  name="clock-time-four" // ✅ đúng icon
+                  name="clock-time-four"
                   color={colors.grey1}
                   size={26}
                 />
                 <Text style={styles.addressText}>Now</Text>
               </View>
+            </View>
+            <View
+              style={{
+                flexDirection: 'row',
+                alignItems: 'center',
+                paddingLeft: 10,
+              }}>
+              <Icon
+                type="material-community"
+                name="tune"
+                color={colors.grey1}
+                size={26}
+              />
             </View>
           </View>
         </View>
@@ -127,5 +144,12 @@ const styles = StyleSheet.create({
     marginLeft: 8,
     fontSize: 16,
     color: colors.grey1,
+  },
+  filterView: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    marginHorizontal: 10,
+    marginVertical: 10,
   },
 });
